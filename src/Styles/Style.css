@@ -1,0 +1,257 @@
+:root {
+  --orange: #dc7c48;
+  --yellow: #fccc8c;
+  --dark-blue: #046176;
+  --light-blue: #5e939c;
+  --bejge: #c4b59d;
+  --dark-green: #2b5a5c;
+  --white: white;
+}
+
+#text {
+  white-space: normal;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.menu-section {
+  display: flex;
+  justify-content: center;
+  background-color: var(--dark-green);
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.menu-container {
+  box-sizing: border-box;
+  min-width: 330px;
+  width: 800px;
+  padding: 20px;
+  border: 3px solid var(--light-blue);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-blue);
+}
+
+button {
+  height: 20px;
+  padding: 0 5px;
+  border-color: var(--yellow);
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.title {
+  text-align: center;
+  color: var(--white);
+  font-size: 2.2rem;
+}
+
+.tip-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.manage-tip-drop {
+  align-self: flex-end;
+  display: inline;
+}
+
+.manage-tip-drop:hover .text-tip-what-to-do {
+  display: block;
+}
+.manage-tip-drop:hover .button-tip-what-to-do {
+  display: none;
+}
+
+.button-tip-what-to-do {
+  border: 1px solid var(--light-blue);
+  background-color: var(--yellow);
+  border-radius: 5px 5px 0px 5px;
+  padding: 2px 5px;
+  font-weight: bolder;
+  color: var(--dark-green);
+}
+
+.manage-tip-drop:hover {
+  cursor: pointer;
+}
+
+.text-tip-what-to-do {
+  display: none;
+  background-color: var(--bejge);
+  border-radius: 10px;
+  padding: 5px;
+  max-width: 500px;
+  margin-left: auto;
+}
+
+
+.titles-container {
+  display: flex;
+  padding: 10px 0;
+  /* overflow-x: scroll; */
+  white-space: nowrap;
+}
+
+.btn-add-title {
+  background-color: var(--orange);
+  padding: 0px 6px;
+  margin: 0;
+  border: 2px solid var(--dark-green);
+  width: 17px;
+  height: 26px;
+  text-align: center;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  color: var(--dark-green);
+  align-self: center;
+}
+.btn-add-title:hover {
+  cursor: pointer;
+}
+
+.a-title-container {
+  display: flex;
+  background-color: var(--light-blue);
+  color: var(--white);
+  padding: 3px 7px;
+  border: 1.5px solid var(--dark-green);
+  border-radius: 10px;
+  font-size: 1rem;
+  align-items: center;
+}
+
+.menu-title {
+  min-width: 50px;
+  max-width: 150px;
+  min-height: 24px;
+  margin: 0;
+  /* overflow: scroll; */
+}
+
+.receiver-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-reseiver {
+  width: 40%;
+  border-radius: 6px;
+  border-color: var(--yellow);
+}
+
+.range-result {
+  color: var(--white);
+}
+
+.score-reseiver {
+  width: 30%;
+}
+.score-reseiver:hover {
+  cursor: pointer;
+}
+
+.point-delete {
+  font-weight: bold;
+  border-radius: 50%;
+  margin-left: 5px;
+  border-color: var(--yellow);
+  color: var(--orange);
+  background-color: black;
+}
+.point-delete:hover {
+  cursor: pointer;
+}
+.add-btn {
+  background-color: var(--orange);
+  color: var(--dark-green);
+  font-size: 1rem;
+  padding: 2px;
+  height: 28px;
+  width: 45px;
+}
+.add-btn:hover {
+  cursor: pointer;
+}
+.sort-btn {
+  font-weight: bold;
+  background-color: var(--orange);
+  color: var(--dark-green);
+  font-size: 1rem;
+  padding: 2px;
+  height: 28px;
+  width: 45px;
+}
+.sort-btn:hover {
+  cursor: pointer;
+}
+.points-list {
+  padding: 0;
+  flex: 0 0 200px;
+}
+
+.tip-for-creating-menu {
+  text-align: center;
+  color: grey;
+  padding-top: 50px;
+}
+
+.point-container {
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-between;
+  background-color: var(--bejge);
+  align-items: center;
+  padding: 5px;
+  margin: 5px 0;
+  border-bottom: 2px solid var(--dark-green);
+  border-right: 2px solid var(--dark-green);
+}
+
+.point-text {
+  width: 80%;
+  max-height: 150px;
+  overflow: auto;
+}
+
+.point-score {
+  color: var(--dark-green);
+  font-weight: bolder;
+}
+
+
+.hide {
+  display: none;
+}
+
+@media (max-width:400px) {
+  .menu-container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .add-btn {
+    font-size: 0.8rem;
+    height: 22px;
+    width: 35px;
+  }
+
+  .sort-btn {
+    font-size: 0.8rem;
+    height: 22px;
+    width: 25px;
+  }
+
+  .point-text {
+    max-height: 80px;
+  }
+}
