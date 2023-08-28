@@ -90,7 +90,6 @@ button {
   margin-left: auto;
 }
 
-
 .titles-container {
   display: flex;
   padding: 10px 0;
@@ -125,7 +124,11 @@ button {
   font-size: 1rem;
   align-items: center;
 }
-
+.title-reseiver {
+  width: 70px;
+  border-radius: 6px;
+  border-color: var(--yellow);
+}
 .menu-title {
   min-width: 50px;
   max-width: 150px;
@@ -225,12 +228,11 @@ button {
   font-weight: bolder;
 }
 
-
 .hide {
   display: none;
 }
 
-@media (max-width:400px) {
+@media (max-width: 400px) {
   .menu-container {
     padding: 10px;
   }
