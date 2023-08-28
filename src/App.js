@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Point from "./Components/Point";
 import MenuTitle from "./Components/MenuTitle";
 import "./Styles/Style.css";
-import TestParent from "./TestParent";
+
 
 function App() {
   const menusStored = JSON.parse(localStorage.getItem("menusStored")) || [

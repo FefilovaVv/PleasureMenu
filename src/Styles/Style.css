@@ -222,7 +222,12 @@ button {
   max-height: 150px;
   overflow: auto;
 }
-
+.edit-text{
+  max-width: 60%;
+}
+.edit-score{
+  max-width: 22%;
+}
 .point-score {
   color: var(--dark-green);
   font-weight: bolder;

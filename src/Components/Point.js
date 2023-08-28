@@ -19,12 +19,12 @@ const Point = (props) => {
           }
         }}
         value={props.point.pointText}
-        className={`point-text title-reseiver ${ishidden}`}
+        className={`point-text title-reseiver edit-text ${ishidden}`}
         onChange={(event) => {
           props.changeText(props.point.id, event.target.value);
         }}
       ></input>
-      <span className={`point-text ${ishidden === "hide" ? "show" : "hide"}`}>
+      <span className={`point-text  ${ishidden === "hide" ? "show" : "hide"}`}>
         {props.point.pointText}
       </span>
 
@@ -39,7 +39,7 @@ const Point = (props) => {
           }
         }}
         value={props.point.pointScore}
-        className={`score-reseiver ${ishidden}`}
+        className={`score-reseiver edit-score ${ishidden}`}
         onChange={(event) => {
           props.changeScore(props.point.id, event.target.value);
         }}
