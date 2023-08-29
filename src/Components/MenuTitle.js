@@ -17,7 +17,7 @@ const MenuTitle = (props) => {
           value={props.menu.title}
           onKeyDown={(event) => {
             if (event.key === "Enter") {
-              handleDoubleClick(); // Вызов handleDoubleClick вместо setHide
+              handleDoubleClick(); 
             }
           }}
           className={`title-reseiver ${ishidden}`}

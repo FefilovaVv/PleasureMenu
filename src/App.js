@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import Point from "./Components/Point";
 import MenuTitle from "./Components/MenuTitle";
 import "./Styles/Style.css";
-
+import TestParent from "./tests and drafts/TestParentImmer";
+import { produce } from "immer";
 
 function App() {
   const menusStored = JSON.parse(localStorage.getItem("menusStored")) || [
@@ -20,14 +21,11 @@ function App() {
 
   function deletePoint(deleteId) {
     setMenus(function (currentMenus) {
-      return currentMenus.map((menu) => {
-        if (activeMenuId === menu.id) {
-          return {
-            ...menu,
-            points: menu.points.filter((point) => point.id !== deleteId),
-          };
-        }
-        return menu;
+      return produce(currentMenus, (draft) => {
+        const activeMenu = draft.find((menu) => activeMenuId === menu.id);
+        activeMenu.points = activeMenu.points.filter(
+          (point) => point.id !== deleteId
+        );
       });
     });
   }
@@ -54,21 +52,14 @@ function App() {
 
   function addPoint() {
     setMenus((currentMenus) => {
-      return currentMenus.map((menu) => {
-        if (activeMenuId === menu.id) {
-          return {
-            ...menu,
-            points: [
-              ...menu.points,
-              {
-                id: Date.now(),
-                pointText: point.pointText,
-                pointScore: point.pointScore,
-              },
-            ],
-          };
-        }
-        return menu;
+      return produce(currentMenus, (draft) => {
+        draft
+          .find((menu) => activeMenuId === menu.id)
+          .points.push({
+            id: Date.now(),
+            pointText: point.pointText,
+            pointScore: point.pointScore,
+          });
       });
     });
     setPoint({ id: "", pointText: "", pointScore: 0 });
@@ -88,39 +79,27 @@ function App() {
 
   const handleChangeTitle = (menuId, newTitle) => {
     setMenus((currentMenus) => {
-      return currentMenus.map((menu) =>
-        menu.id === menuId ? { ...menu, title: newTitle } : menu
-      );
+      return produce(currentMenus, (draft) => {
+        draft.find((menu) => menu.id === menuId).title = newTitle;
+      });
     });
   };
   const handleChangePointText = (pointId, newText) => {
     setMenus((currentMenus) => {
-      return currentMenus.map((menu) =>
-        menu.id === activeMenuId
-          ? {
-              ...menu,
-              points: menu.points.map((point) =>
-                point.id === pointId ? { ...point, pointText: newText } : point
-              ),
-            }
-          : menu
-      );
+      return produce(currentMenus, (draft) => {
+        draft
+          .find((menu) => menu.id === activeMenuId)
+          .points.find((point) => point.id === pointId).pointText = newText;
+      });
     });
   };
   const handleChangePointScore = (pointId, newScore) => {
     setMenus((currentMenus) => {
-      return currentMenus.map((menu) =>
-        menu.id === activeMenuId
-          ? {
-              ...menu,
-              points: menu.points.map((point) =>
-                point.id === pointId
-                  ? { ...point, pointScore: newScore }
-                  : point
-              ),
-            }
-          : menu
-      );
+      return produce(currentMenus, (draft) => {
+        draft
+          .find((menu) => menu.id === activeMenuId)
+          .points.find((point) => point.id === pointId).pointScore = newScore;
+      });
     });
   };
 
@@ -209,6 +188,7 @@ function App() {
               ))}
             </ul>
           </div>
+          {/* <TestParent/> */}
         </div>
       </section>
     </>
